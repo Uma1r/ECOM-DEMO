@@ -6,13 +6,21 @@
     android:layout_height="match_parent"
     tools:context=".ui.home.ProductListingFragment">
 
-    <androidx.appcompat.widget.AppCompatTextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/app_name"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvProducts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        tools:itemCount="5" />
+
+    <include
+        android:id="@+id/layoutShimmerLoading"
+        layout="@layout/layout_products_shimmer_loading"
+        android:visibility="visible" />
+
+    <include
+        android:id="@+id/layoutRetry"
+        layout="@layout/layout_retry"
+        android:visibility="gone" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

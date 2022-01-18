@@ -6,4 +6,9 @@
     <string name="something_went_wrong_str">Something went wrong...</string>
     <string name="txt_retry_subheading_str">An alien is probably blocking your signal.</string>
     <string name="message_no_network_connected_str">No Internet Available</string>
+
+    <string name="retry">Retry</string>
+
+    <string name="no_products_str">No products listed yet!</string>
+    <string name="label_product_price">$ %s</string>
 </resources>
