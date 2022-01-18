@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/homeProductListingFragment">
+    app:startDestination="@id/productListingFragment">
 
     <fragment
-        android:id="@+id/homeProductListingFragment"
-        android:name="com.umair.ecom.demo.ui.HomeProductListingFragment"
+        android:id="@+id/productListingFragment"
+        android:name="com.umair.ecom.demo.ui.home.ProductListingFragment"
         android:label="@string/lbl_home_str"
-        tools:layout="@layout/fragment_home_product_listing" />
+        tools:layout="@layout/fragment_product_listing" />
 
 </navigation>
