@@ -2,7 +2,7 @@ package com.umair.ecom.demo.data.repository
 
 import com.umair.ecom.demo.data.DataResource
 import com.umair.ecom.demo.data.callApi
-import com.umair.ecom.demo.data.models.ProductItemResponse
+import com.umair.ecom.demo.data.remote.responses.ProductItemResponse
 import com.umair.ecom.demo.data.remote.FakeStoreApiService
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

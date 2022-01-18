@@ -1,7 +1,10 @@
-package com.umair.ecom.demo.data.models
+package com.umair.ecom.demo.data.remote.responses
 
+import android.os.Parcelable
 import com.google.gson.annotations.SerializedName
+import kotlinx.parcelize.Parcelize
 
+@Parcelize
 data class ProductItemResponse(
     @SerializedName("category")
     val category: String,
@@ -17,11 +20,12 @@ data class ProductItemResponse(
     val rating: Rating,
     @SerializedName("title")
     val title: String
-)
+) : Parcelable
 
+@Parcelize
 data class Rating(
     @SerializedName("count")
     val count: Int,
     @SerializedName("rate")
     val rate: Double
-)
+) : Parcelable

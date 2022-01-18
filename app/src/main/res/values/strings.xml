@@ -2,6 +2,7 @@
     <string name="app_name">ECOM Demo</string>
 
     <string name="lbl_home_str">Home Product Listing</string>
+    <string name="lbl_product_details_str">Product Details</string>
 
     <string name="something_went_wrong_str">Something went wrong...</string>
     <string name="txt_retry_subheading_str">An alien is probably blocking your signal.</string>

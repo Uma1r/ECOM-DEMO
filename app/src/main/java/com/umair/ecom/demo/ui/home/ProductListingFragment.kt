@@ -4,13 +4,17 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.umair.ecom.demo.R
 import com.umair.ecom.demo.adapters.ProductAdapter
+import com.umair.ecom.demo.data.remote.responses.ProductItemResponse
 import com.umair.ecom.demo.databinding.FragmentProductListingBinding
+import com.umair.ecom.demo.utils.AppConstants
 import com.umair.ecom.demo.utils.gone
 import com.umair.ecom.demo.utils.show
 import dagger.hilt.android.AndroidEntryPoint
@@ -80,7 +84,7 @@ class ProductListingFragment : Fragment() {
 
     private fun setupViews() {
         // Recycler
-        recyclerAdapter = ProductAdapter()
+        recyclerAdapter = ProductAdapter(::onProductClick)
         binding.rvProducts.apply {
             layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
             addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
@@ -91,5 +95,13 @@ class ProductListingFragment : Fragment() {
         binding.layoutRetry.btnRetry.setOnClickListener {
             viewModel.loadProducts()
         }
+    }
+
+    fun onProductClick(product: ProductItemResponse) {
+        val bundle = bundleOf(AppConstants.ParcelKeys.PRODUCT_ITEM to product)
+        findNavController().navigate(
+            R.id.action_productListingFragment_to_productDetailsListingFragment,
+            bundle
+        )
     }
 }

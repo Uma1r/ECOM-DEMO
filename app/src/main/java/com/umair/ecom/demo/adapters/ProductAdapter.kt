@@ -7,12 +7,14 @@ import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import com.umair.ecom.demo.R
 import com.umair.ecom.demo.adapters.base.BaseRecyclerViewAdapter
-import com.umair.ecom.demo.data.models.ProductItemResponse
+import com.umair.ecom.demo.data.remote.responses.ProductItemResponse
 import com.umair.ecom.demo.databinding.ItemProductLayoutBinding
 import java.math.BigDecimal
 import java.math.RoundingMode
 
-class ProductAdapter : BaseRecyclerViewAdapter<ProductAdapter.ViewHolder, ProductItemResponse>() {
+class ProductAdapter(
+    val onProductClick: (product: ProductItemResponse) -> Unit
+) : BaseRecyclerViewAdapter<ProductAdapter.ViewHolder, ProductItemResponse>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val binding =
@@ -47,6 +49,10 @@ class ProductAdapter : BaseRecyclerViewAdapter<ProductAdapter.ViewHolder, Produc
                 ivCover.load(item.image) {
                     crossfade(true)
                     placeholder(R.color.loading_gray)
+                }
+
+                itemBinding.root.setOnClickListener {
+                    onProductClick.invoke(item)
                 }
             }
         }

@@ -5,7 +5,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.umair.ecom.demo.data.models.ProductItemResponse
+import com.umair.ecom.demo.data.remote.responses.ProductItemResponse
 import com.umair.ecom.demo.data.onEmpty
 import com.umair.ecom.demo.data.onError
 import com.umair.ecom.demo.data.onLoading
