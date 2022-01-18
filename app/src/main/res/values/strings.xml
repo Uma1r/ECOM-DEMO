@@ -10,6 +10,6 @@
 
     <string name="retry">Retry</string>
 
-    <string name="no_products_str">No products listed yet!</string>
+    <string name="no_products_str">No product found!</string>
     <string name="label_product_price">$ %s</string>
 </resources>

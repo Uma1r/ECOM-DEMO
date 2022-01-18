@@ -9,6 +9,25 @@
         android:id="@+id/productListingFragment"
         android:name="com.umair.ecom.demo.ui.home.ProductListingFragment"
         android:label="@string/lbl_home_str"
-        tools:layout="@layout/fragment_product_listing" />
+        tools:layout="@layout/fragment_product_listing">
+
+        <action
+            android:id="@+id/action_productListingFragment_to_productDetailsListingFragment"
+            app:destination="@id/productDetailsListingFragment">
+
+            <argument
+                android:name="productModel"
+                android:defaultValue="@null"
+                app:argType="com.umair.ecom.demo.data.remote.responses.ProductItemResponse"
+                app:nullable="true" />
+        </action>
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/productDetailsListingFragment"
+        android:name="com.umair.ecom.demo.ui.product_details.ProductDetailsFragment"
+        android:label="@string/lbl_product_details_str"
+        tools:layout="@layout/fragment_product_details" />
 
 </navigation>

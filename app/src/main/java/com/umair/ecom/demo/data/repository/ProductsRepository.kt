@@ -13,6 +13,7 @@ import javax.inject.Inject
 
 interface ProductsRepository {
     fun fetchAllProducts(): Flow<DataResource<List<ProductItemResponse>>>
+    fun fetchProductDetails(id: Int): Flow<DataResource<ProductItemResponse>>
 }
 
 class DefaultProductsRepository @Inject constructor(
@@ -28,4 +29,14 @@ class DefaultProductsRepository @Inject constructor(
         }
         emit(result)
     }.flowOn(dispatcher)
+
+    override fun fetchProductDetails(id: Int): Flow<DataResource<ProductItemResponse>> =
+        flow {
+            emit(DataResource.Loading)
+            val result = callApi {
+                val productDetailsResponse = apiService.loadProductDetails(id = id)
+                productDetailsResponse
+            }
+            emit(result)
+        }.flowOn(dispatcher)
 }

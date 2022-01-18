@@ -2,6 +2,7 @@ package com.umair.ecom.demo.di
 
 import com.umair.ecom.demo.data.repository.ProductsRepository
 import com.umair.ecom.demo.data.usecases.FetchAllProductsUseCase
+import com.umair.ecom.demo.data.usecases.FetchProductDetailsUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -19,5 +20,13 @@ class UseCasesModule {
         repository: ProductsRepository
     ): FetchAllProductsUseCase {
         return FetchAllProductsUseCase(repository, Dispatchers.IO)
+    }
+
+    @ViewModelScoped
+    @Provides
+    fun provideFetchProductDetailsUseCase(
+        repository: ProductsRepository
+    ): FetchProductDetailsUseCase {
+        return FetchProductDetailsUseCase(repository, Dispatchers.IO)
     }
 }

@@ -8,6 +8,7 @@ object AppConstants {
 
     object APIEndpoints {
         const val GET_PRODUCT_LISTING = "products"
+        const val GET_PRODUCT_DETAILS = "products/{id}"
     }
 
     object ParcelKeys {
