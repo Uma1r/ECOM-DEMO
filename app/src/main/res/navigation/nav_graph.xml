@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeProductListingFragment">
+
+    <fragment
+        android:id="@+id/homeProductListingFragment"
+        android:name="com.umair.ecom.demo.ui.HomeProductListingFragment"
+        android:label="@string/lbl_home_str"
+        tools:layout="@layout/fragment_home_product_listing" />
+
+</navigation>
