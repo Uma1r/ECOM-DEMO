@@ -40,4 +40,15 @@ dependencies {
     implementation "com.intuit.sdp:sdp-android:$sdp_version"
     implementation "com.intuit.ssp:ssp-android:$ssp_version"
 
+    // Testing
+    debugImplementation "androidx.fragment:fragment-testing:$fragment_version"
+    testImplementation "junit:junit:$junit_version"
+    testImplementation "android.arch.core:core-testing:$core_testing_version"
+    testImplementation "androidx.arch.core:core-testing:$arch_testing_version"
+    testImplementation "org.jetbrains.kotlinx:kotlinx-coroutines-test:$coroutines_version"
+    testImplementation "io.mockk:mockk:$mockk_version"
+    testImplementation "com.squareup.okhttp3:mockwebserver:$okhttp_version"
+    androidTestImplementation "androidx.test.ext:junit:$android_text_ext_version"
+    androidTestImplementation "androidx.test.espresso:espresso-core:$espresso_version"
+    androidTestImplementation "io.mockk:mockk-android:$mockk_version"
 }
