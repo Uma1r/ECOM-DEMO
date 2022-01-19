@@ -43,4 +43,5 @@ Download the [APK file from here](https://github.com/Uma1r/ECOM-DEMO/raw/main/de
 - [MockK](https://mockk.io) - For Mocking and Unit Testing
 - [Coil](https://coil-kt.github.io/coil/) - For Image loading
 - [Retrofit2 & OkHttp3](https://github.com/square/retrofit) - Construct the REST APIs.
-- [Material-Components](https://github.com/material-components/material-components-android) - Material design components for building ripple animation, and CardView.
+- [Material-Components](https://github.com/material-components/material-components-android) - Material design components
+- [Facebook-Shimmer-Loading](https://github.com/facebook/shimmer-android) - Shimmer is an Android library that provides an easy way to add a shimmer effect to any view in your Android app.
