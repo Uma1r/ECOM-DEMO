@@ -17,9 +17,9 @@ A simple app showcasing a products listing page and a product details page utili
 * Light/Dark mode
 * Shimmer loading effect
 * Graceful error handling
-* Unit Tests
 * Dependency Injection
 * Kotlin
+* Unit Tests
 
 ## Download Demo APK on Android
 Download the [APK file from here](https://github.com/Uma1r/ECOM-DEMO/raw/main/demo/app-release.apk) on your Android Device to be able to run ECOM-DEMO
@@ -32,7 +32,6 @@ Download the [APK file from here](https://github.com/Uma1r/ECOM-DEMO/raw/main/de
 ## Technology Stack & Open-source libraries
 - Minimum SDK level 21
 - [Kotlin](https://kotlinlang.org/) based, [Coroutines](https://github.com/Kotlin/kotlinx.coroutines) + [Flow](https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines.flow/) for asynchronous.
-- [Hilt](https://dagger.dev/hilt/) for dependency injection.
 - [Android Architecture Components](https://developer.android.com/topic/libraries/architecture) - Collection of libraries that help you design robust, testable, and maintainable apps.
   - [LiveData](https://developer.android.com/topic/libraries/architecture/livedata) - Data objects that notify views when the underlying database changes.
   - [ViewModel](https://developer.android.com/topic/libraries/architecture/viewmodel) - Stores UI-related data that isn't destroyed on UI changes.
