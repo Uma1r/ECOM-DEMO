@@ -9,11 +9,9 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.Flow
 
 class FetchProductDetailsUseCase(
-    private val productsRepository: ProductsRepository,
-    dispatcher: CoroutineDispatcher = Dispatchers.IO
-) : FlowUseCase<Int, DataResource<ProductItemResponse>>(dispatcher) {
-
+    private val productsRepository: ProductsRepository
+) {
     @ExperimentalCoroutinesApi
-    override fun execute(id: Int): Flow<DataResource<ProductItemResponse>> =
+    operator fun invoke(id: Int): Flow<DataResource<ProductItemResponse>> =
         productsRepository.fetchProductDetails(id = id)
 }

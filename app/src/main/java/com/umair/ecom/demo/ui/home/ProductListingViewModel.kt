@@ -29,7 +29,7 @@ class ProductListingViewModel @Inject constructor(
 
     fun loadProducts() {
         viewModelScope.launch {
-            loadAllProductsUseCase.invoke(Unit).collect { dataResource ->
+            loadAllProductsUseCase.invoke().collect { dataResource ->
                 dataResource.onSuccess {
                     _productsList.value = this.data!!
                     _uiState.value = ContentState

@@ -27,7 +27,7 @@ import org.junit.runners.JUnit4
 class DefaultProductsRepositoryTest {
 
     // Subject under Test
-    private lateinit var repository: DefaultProductsRepository
+    private lateinit var repositoryImpl: ProductsRepositoryImpl
 
     @MockK
     private lateinit var apiService: FakeStoreApiService
@@ -51,7 +51,7 @@ class DefaultProductsRepositoryTest {
     @Test
     fun `test fetchAllProducts() gives list of Products`() = runBlocking {
         // Given
-        repository = DefaultProductsRepository(apiService, coroutinesRule.testDispatcher)
+        repositoryImpl = ProductsRepositoryImpl(apiService)
         val productsResponse = TestDataUtils.createProductItemsList(3)
         val givenProductsList = productsResponse
 
@@ -60,7 +60,7 @@ class DefaultProductsRepositoryTest {
             .returns(givenProductsList)
 
         // Invoke
-        val apiResponseFlow = repository.fetchAllProducts()
+        val apiResponseFlow = repositoryImpl.fetchAllProducts()
 
         // Then
         MatcherAssert.assertThat(apiResponseFlow, CoreMatchers.notNullValue())

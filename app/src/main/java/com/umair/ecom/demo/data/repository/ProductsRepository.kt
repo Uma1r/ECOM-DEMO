@@ -11,32 +11,28 @@ import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
+typealias ProductsListResponse = DataResource<List<ProductItemResponse>>
+typealias ProductResponse = DataResource<ProductItemResponse>
+
 interface ProductsRepository {
-    fun fetchAllProducts(): Flow<DataResource<List<ProductItemResponse>>>
-    fun fetchProductDetails(id: Int): Flow<DataResource<ProductItemResponse>>
+    fun fetchAllProducts(): Flow<ProductsListResponse>
+    fun fetchProductDetails(id: Int): Flow<ProductResponse>
 }
 
-class DefaultProductsRepository @Inject constructor(
-    private val apiService: FakeStoreApiService,
-    val dispatcher: CoroutineDispatcher = Dispatchers.IO
+class ProductsRepositoryImpl @Inject constructor(
+    private val apiService: FakeStoreApiService
 ) : ProductsRepository {
 
-    override fun fetchAllProducts(): Flow<DataResource<List<ProductItemResponse>>> = flow {
+    override fun fetchAllProducts() = flow {
         emit(DataResource.Loading)
-        val result = callApi {
-            val productsResponse = apiService.loadProducts()
-            productsResponse
-        }
+        val result = callApi(apiService::loadProducts)
         emit(result)
-    }.flowOn(dispatcher)
+    }.flowOn(Dispatchers.IO)
 
-    override fun fetchProductDetails(id: Int): Flow<DataResource<ProductItemResponse>> =
+    override fun fetchProductDetails(id: Int) =
         flow {
             emit(DataResource.Loading)
-            val result = callApi {
-                val productDetailsResponse = apiService.loadProductDetails(id = id)
-                productDetailsResponse
-            }
+            val result = callApi { apiService.loadProductDetails(id = id) }
             emit(result)
-        }.flowOn(dispatcher)
+        }.flowOn(Dispatchers.IO)
 }

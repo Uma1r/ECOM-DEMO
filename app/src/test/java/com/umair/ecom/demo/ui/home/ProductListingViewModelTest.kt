@@ -49,7 +49,7 @@ class ProductListingViewModelTest {
             val productsListObserver = mockk<Observer<List<ProductItemResponse>>>(relaxed = true)
 
             // When
-            coEvery { loadAllProductsUseCase.invoke(Unit) }
+            coEvery { loadAllProductsUseCase.invoke() }
                 .returns(flowOf(DataResource.Success(givenProducts)))
 
             // Invoke
@@ -59,7 +59,7 @@ class ProductListingViewModelTest {
             viewModel.productsList.observeForever(productsListObserver)
 
             // Then
-            coVerify(exactly = 1) { loadAllProductsUseCase.invoke(Unit) }
+            coVerify(exactly = 1) { loadAllProductsUseCase.invoke() }
             verify { uiObserver.onChanged(match { it == ContentState }) }
             verify { productsListObserver.onChanged(match { it.size == givenProducts.size }) }
         }

@@ -19,7 +19,7 @@ class UseCasesModule {
     fun provideFetchAllProductsUseCase(
         repository: ProductsRepository
     ): FetchAllProductsUseCase {
-        return FetchAllProductsUseCase(repository, Dispatchers.IO)
+        return FetchAllProductsUseCase(repository)
     }
 
     @ViewModelScoped
@@ -27,6 +27,6 @@ class UseCasesModule {
     fun provideFetchProductDetailsUseCase(
         repository: ProductsRepository
     ): FetchProductDetailsUseCase {
-        return FetchProductDetailsUseCase(repository, Dispatchers.IO)
+        return FetchProductDetailsUseCase(repository)
     }
 }

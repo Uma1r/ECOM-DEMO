@@ -43,7 +43,7 @@ class FetchAllProductsUseCaseTest {
     @Test
     fun `test invoking FetchAllProductsUseCase gives list of Products`() = runBlocking {
         // Given
-        val usecase = FetchAllProductsUseCase(repository, coroutinesRule.testDispatcher)
+        val usecase = FetchAllProductsUseCase(repository)
         val givenProducts = TestDataUtils.createProductItemsList(3)
 
         // When
@@ -51,7 +51,7 @@ class FetchAllProductsUseCaseTest {
             .returns(flowOf(DataResource.Success(givenProducts)))
 
         // Invoke
-        val productsListFlow = usecase(Unit)
+        val productsListFlow = usecase()
 
         // Then
         MatcherAssert.assertThat(productsListFlow, CoreMatchers.notNullValue())
